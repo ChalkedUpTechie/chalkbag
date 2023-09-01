@@ -1,0 +1,95 @@
+
+import random     # This 'import' the random module which will be used in the programme
+                  # This will provide acces additional functions/modules within the module. From example : random.randint
+
+def intro():
+    print("You are playing dice with Death")
+    print("Win and live another day, lose and your soul is doomed")
+
+intro()
+
+death_roll1 = random.randint(1, 6)
+death_roll2 = random.randint(1, 6)
+death_possible = int(death_roll1 + 6)
+death_total = int(death_roll1 + death_roll2)
+your_roll = random.randint(1,6)
+your_roll2 = random.randint(1, 6)
+your_possible = int(your_roll + 6)
+you_total = int(your_roll + your_roll2)
+
+def death1():
+    print("Death shakes a die...")
+    print( "Death rolls",death_roll1)
+def death2():
+    print("Death rolls", death_roll2, "scoring",death_total)
+
+def you1():
+    print("You roll",your_roll)
+    input("Press enter to continue")
+
+def you2():
+    print("You roll", your_roll2, "scoring",you_total)
+
+def game_death():
+    if death_total > your_possible:
+        print("You lose the game and your life")
+        input("Press enter to play again")
+        start()
+
+    else:
+        you2()
+
+    while death_total == you_total:
+        print("You will need to play again")
+        start()
+
+
+    if you_total > death_total:
+        print("You win and live another day")
+        input("Press enter to play again")
+        start()
+
+
+    if death_total > you_total:
+        print("You lose the game and your life")
+        input("Press enter to play again")
+        start()
+
+def game_you():
+    if you_total > death_possible:
+        print("You win and live another day")
+        input("Press enter to play again")
+        start()
+
+    else:
+        death2()
+        print("You roll", your_roll2, "scoring", you_total)
+
+    while death_total == you_total:
+        print("You will need to play again")
+        start()
+
+
+    if you_total > death_total:
+        print("You win and live another day")
+        input("Press enter to play again")
+        start()
+
+
+    if death_total > you_total:
+        print("You lose the game and your life")
+        input("Press enter to play again")
+        start()
+def start():
+    choice = input("Who goes first?")
+    if choice == "Death":
+      death1()
+      you1()
+      game_death()
+
+    else:
+     you1()
+     death1()
+     game_you()
+
+start()
