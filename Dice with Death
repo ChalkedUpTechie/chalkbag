@@ -1,6 +1,6 @@
+# Credit to Ninedeadeyes for basic source code
 
-import random     # This 'import' the random module which will be used in the programme
-                  # This will provide acces additional functions/modules within the module. From example : random.randint
+import random 
 
 def intro():
     print("You are playing dice with Death")
